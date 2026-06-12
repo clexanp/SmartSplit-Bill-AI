@@ -6,7 +6,7 @@ Smart Split Bill AI merupakan prototype aplikasi web berbasis Artificial Intelli
 
 Aplikasi memanfaatkan model multimodal Gemini 2.5 Flash untuk memahami isi gambar nota dan mengekstrak informasi transaksi seperti nama item, jumlah item, harga item, subtotal, biaya tambahan, dan total bill. Setelah data transaksi berhasil dibaca, pengguna dapat menentukan siapa saja yang terlibat dalam transaksi dan memilih item yang dibayar oleh masing-masing peserta.
 
-Project ini dikembangkan sebagai proof of concept untuk menunjukkan bagaimana teknologi AI dapat membantu proses pencatatan transaksi dan pembagian tagihan secara lebih praktis.
+Project ini dikembangkan bukan sekedar kebutuhan tugas namun diharapkan jadi alat uji untuk membuktikan bagaimana teknologi AI dapat membantu proses pencatatan transaksi dan pembagian tagihan secara lebih praktis.
 
 ---
 
@@ -174,7 +174,7 @@ Buka URL tersebut pada browser.
 
 # Analisis Hasil Akhir Produk
 
-Berdasarkan pengujian yang dilakukan menggunakan beberapa nota restoran dan minimarket, aplikasi mampu melakukan ekstraksi data transaksi dengan cukup baik.
+Berdasarkan pengujian yang dilakukan menggunakan beberapa nota restoran dan minimarket dalam hal ini aku pakai nota dari hasil belanja aku sendiri dan juga eksperimen pakai nota yang aku dapat dari pinterest, aplikasi ini mampu melakukan ekstraksi data transaksi dengan cukup baik.
 
 Model Gemini 2.5 Flash mampu membaca informasi penting seperti nama item, jumlah item, harga item, subtotal, biaya tambahan, dan total bill. Hasil ekstraksi kemudian digunakan untuk melakukan proses pembagian tagihan kepada beberapa peserta.
 
@@ -193,8 +193,7 @@ Beberapa kelemahan yang ditemukan selama proses pengujian:
 * Model sangat bergantung pada kualitas gambar yang diunggah.
 * Nota yang blur atau memiliki pencahayaan buruk dapat menurunkan akurasi ekstraksi.
 * Membutuhkan koneksi internet karena menggunakan Gemini API.
-* Waktu inferensi bergantung pada kecepatan jaringan dan server API.
-* Beberapa nama item yang tidak umum terkadang dapat dibaca kurang tepat.
+* Beberapa nama item yang tidak umum atau kurang familiar terkadang kurang dapat dibaca oleh model.
 
 ---
 
@@ -203,10 +202,8 @@ Beberapa kelemahan yang ditemukan selama proses pengujian:
 Beberapa pengembangan yang dapat dilakukan pada model AI:
 
 * Menambahkan OCR lokal sebagai fallback apabila koneksi internet tidak tersedia.
-* Menggunakan beberapa model sekaligus untuk meningkatkan akurasi ekstraksi.
-* Melakukan fine-tuning model menggunakan dataset receipt Indonesia.
+* Menggunakan beberapa model sekaligus untuk meningkatkan akurasi pada proses esktraksi terhadap nota yang akan di uji.
 * Menambahkan confidence score pada hasil pembacaan item.
-* Menambahkan validasi otomatis terhadap hasil ekstraksi sebelum ditampilkan kepada pengguna.
 
 ---
 
@@ -218,7 +215,8 @@ Beberapa keterbatasan aplikasi saat ini:
 * Riwayat transaksi belum tersimpan ke database.
 * Belum tersedia fitur ekspor hasil split bill ke PDF atau Excel.
 * Belum tersedia fitur berbagi hasil pembayaran melalui WhatsApp atau Email.
-* Antarmuka masih sederhana karena fokus pada pembuatan prototype.
+* Antarmuka masih sederhana karena fokus pada pembuatan prototype yang
+sesuai dengan ketentuan dari tugas.
 
 ---
 
@@ -237,6 +235,6 @@ Beberapa pengembangan yang dapat dilakukan pada versi berikutnya:
 
 # Kesimpulan
 
-Smart Split Bill AI berhasil menunjukkan bahwa teknologi multimodal AI dapat digunakan untuk membaca receipt dan membantu proses pembagian tagihan secara otomatis.
+Smart Split Bill AI berhasil menunjukkan bahwa teknologi multimodal AI dapat digunakan untuk membaca nota dan membantu proses pembagian tagihan secara otomatis.
 
-Melalui kombinasi Gemini 2.5 Flash dan Streamlit, aplikasi mampu memberikan pengalaman yang sederhana namun cukup efektif untuk membantu pengguna mengelola transaksi bersama. Walaupun masih memiliki beberapa keterbatasan, prototype ini memiliki potensi untuk dikembangkan menjadi aplikasi yang lebih lengkap pada masa mendatang.
+Aku menggunakan Gemini 2.5 Flash dan Streamlit, supaya bisa memberikan pengalaman terhadap pengguna untuk membantu mengelola transaksi bersama. Walaupun masih memiliki beberapa keterbatasan, prototype ini sekiranya sudah sesuai dengan ketentuan tugas dan tentunya memiliki potensi untuk dikembangkan menjadi aplikasi yang lebih lengkap pada masa mendatang.
