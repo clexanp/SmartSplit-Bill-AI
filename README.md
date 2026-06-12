@@ -1,20 +1,37 @@
-# Cara Menjalankan Project SmartSplit Bill AI
+# Smart Split Bill AI
+
+## Deskripsi Project
+
+Smart Split Bill AI merupakan prototype aplikasi web berbasis Artificial Intelligence yang digunakan untuk membantu pengguna membaca nota atau bill belanja secara otomatis dan melakukan pembagian tagihan (split bill) kepada beberapa peserta.
+
+Aplikasi memanfaatkan model multimodal Gemini 2.5 Flash untuk memahami isi gambar nota dan mengekstrak informasi transaksi seperti nama item, jumlah item, harga item, subtotal, biaya tambahan, dan total bill. Setelah data transaksi berhasil dibaca, pengguna dapat menentukan siapa saja yang terlibat dalam transaksi dan memilih item yang dibayar oleh masing-masing peserta.
+
+Project ini dikembangkan sebagai proof of concept untuk menunjukkan bagaimana teknologi AI dapat membantu proses pencatatan transaksi dan pembagian tagihan secara lebih praktis.
 
 ---
 
-## 1. Buka Anaconda Prompt
+# Teknologi yang Digunakan
 
-Cari aplikasi berikut di Windows:
-
-```bash
-Anaconda Prompt
-```
-
-Gunakan Anaconda Prompt untuk membuat environment dan install library.
+* Python 3.10
+* Streamlit
+* Google Gemini 2.5 Flash API
+* Pandas
+* Pillow
+* Transformers
+* Torch
+* Anaconda
 
 ---
 
-## 2. Buat Environment Baru
+# Cara Menjalankan Project
+
+## 1. Membuka Anaconda Prompt
+
+Buka aplikasi Anaconda Prompt melalui Start Menu Windows.
+
+---
+
+## 2. Membuat Environment Baru
 
 Jalankan perintah berikut:
 
@@ -22,25 +39,23 @@ Jalankan perintah berikut:
 conda create -n smartbill python=3.10
 ```
 
-Jika muncul pertanyaan konfirmasi, ketik:
+Ketik:
 
 ```bash
 y
 ```
 
-Tunggu sampai proses selesai.
+jika muncul permintaan konfirmasi.
 
 ---
 
-## 3. Aktifkan Environment
-
-Jalankan:
+## 3. Mengaktifkan Environment
 
 ```bash
 conda activate smartbill
 ```
 
-Jika berhasil, terminal akan berubah menjadi seperti ini:
+Jika berhasil, terminal akan menampilkan:
 
 ```bash
 (smartbill)
@@ -50,7 +65,11 @@ Jika berhasil, terminal akan berubah menjadi seperti ini:
 
 ## 4. Masuk ke Folder Project
 
-Masuk ke folder project menggunakan perintah `cd`.
+Masuk ke folder project menggunakan perintah:
+
+```bash
+cd /d "LOKASI_FOLDER_PROJECT"
+```
 
 Contoh:
 
@@ -58,127 +77,69 @@ Contoh:
 cd /d "D:\Dokumen Bootcamp Dibimbing 2025\Semua Materi dan Tugas 03 Mei 2026\SmartSplit Bill AI\Tugas\Assignment Day 54\SmartSplit Bill AI"
 ```
 
-Pastikan folder tersebut berisi file:
-
-```bash
-app.py
-requirements.txt
-README.md
-```
-
-Untuk mengecek isi folder, jalankan:
-
-```bash
-dir
-```
-
 ---
 
-## 5. Upgrade pip, setuptools, dan wheel
+## 5. Install Dependency
 
-Jalankan:
+Upgrade pip terlebih dahulu:
 
 ```bash
 python -m pip install --upgrade pip setuptools wheel
 ```
 
-Langkah ini berguna supaya proses install library lebih stabil.
-
----
-
-## 6. Install Library Project
-
-Jalankan:
+Install seluruh library:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Tunggu sampai semua library selesai terinstall.
+---
+
+## 6. Membuat API Key Gemini
+
+Buat API Key melalui Google AI Studio.
+
+Simpan API Key ke dalam file:
+
+```env
+.env
+```
+
+dengan format:
+
+```env
+GEMINI_API_KEY=MASUKKAN_API_KEY_ANDA
+```
 
 ---
 
-## 7. Buka Project di VS Code
+## 7. Membuka Project Menggunakan VS Code
 
-Masih di Anaconda Prompt dan masih berada di folder project, jalankan:
+Masih dari Anaconda Prompt:
 
 ```bash
 code .
 ```
 
-VS Code akan terbuka langsung pada folder project.
-
 ---
 
-## 8. Pilih Python Interpreter di VS Code
+## 8. Memilih Python Interpreter
 
-Di VS Code, tekan:
+Di VS Code:
 
-```bash
-Ctrl + Shift + P
-```
-
-Lalu cari:
-
-```bash
-Python: Select Interpreter
-```
-
-Pilih interpreter berikut:
+* Tekan Ctrl + Shift + P
+* Pilih Python: Select Interpreter
+* Pilih interpreter:
 
 ```bash
 D:\Anaconda\envs\smartbill\python.exe
 ```
 
-atau yang memiliki nama:
-
-```bash
-smartbill Python 3.10
-```
-
 ---
 
-## 9. Buat File `.env`
+## 9. Menjalankan Aplikasi
 
-Di folder utama project, buat file baru bernama:
-
-```bash
-.env
-```
-
-Isi file tersebut dengan format berikut:
-
-```env
-GEMINI_API_KEY=MASUKKAN_API_KEY_KAMU
-```
-
-Contoh:
-
-```env
-GEMINI_API_KEY=AIzaSyxxxxxxxxxxxxxxxx
-```
-
-API key dapat dibuat melalui Google AI Studio.
-
----
-
-## 10. Jalankan Aplikasi Streamlit
-
-Buka terminal di VS Code, lalu pastikan environment yang digunakan adalah `smartbill`.
-
-Cek Python yang aktif:
-
-```bash
-where python
-```
-
-Pastikan hasil paling atas mengarah ke:
-
-```bash
-D:\Anaconda\envs\smartbill\python.exe
-```
-
-Setelah itu jalankan aplikasi:
+Buka terminal VS Code lalu jalankan:
 
 ```bash
 python -m streamlit run app.py
@@ -186,103 +147,96 @@ python -m streamlit run app.py
 
 ---
 
-## 11. Buka Aplikasi di Browser
+## 10. Membuka Aplikasi
 
-Jika berhasil, terminal akan menampilkan URL seperti:
+Jika berhasil, Streamlit akan menampilkan URL:
 
 ```bash
 http://localhost:8501
 ```
 
-Buka link tersebut di browser.
+Buka URL tersebut pada browser.
 
 ---
 
-## 12. Cara Menggunakan Aplikasi
+# Cara Menggunakan Aplikasi
 
-1. Upload gambar nota atau bill belanja.
-2. Klik tombol **Baca nota dengan AI**.
-3. Tunggu sampai sistem menampilkan hasil pembacaan item.
-4. Masukkan nama peserta split bill.
-5. Pilih siapa saja yang membayar tiap item.
-6. Klik tombol **Hitung Split Bill**.
-7. Sistem akan menampilkan total pembayaran masing-masing orang.
-
----
-
-## 13. Jika Aplikasi Error Karena Model Gemini
-
-Pastikan di file `app.py` bagian model menggunakan:
-
-```python
-model = genai.GenerativeModel("gemini-2.5-flash")
-```
+1. Upload gambar nota atau receipt.
+2. Masukkan Gemini API Key.
+3. Klik tombol "Baca Nota Dengan AI".
+4. Tunggu hingga sistem menampilkan hasil ekstraksi data transaksi.
+5. Masukkan nama peserta split bill.
+6. Pilih item yang dibayar oleh masing-masing peserta.
+7. Klik tombol "Hitung Split Bill".
+8. Sistem akan menampilkan total pembayaran masing-masing peserta.
 
 ---
 
-## 14. Jika Streamlit Tidak Jalan
+# Analisis Hasil Akhir Produk
 
-Gunakan perintah berikut:
+Berdasarkan pengujian yang dilakukan menggunakan beberapa nota restoran dan minimarket, aplikasi mampu melakukan ekstraksi data transaksi dengan cukup baik.
 
-```bash
-python -m streamlit run app.py
-```
+Model Gemini 2.5 Flash mampu membaca informasi penting seperti nama item, jumlah item, harga item, subtotal, biaya tambahan, dan total bill. Hasil ekstraksi kemudian digunakan untuk melakukan proses pembagian tagihan kepada beberapa peserta.
 
-Jangan menggunakan:
+Pada nota yang memiliki kualitas gambar baik, sistem mampu menghasilkan data yang cukup akurat sehingga pengguna tidak perlu melakukan input ulang secara manual.
 
-```bash
-streamlit run app.py
-```
+Selain itu, sistem berhasil memastikan bahwa total pembayaran seluruh peserta mendekati total bill asli yang terdapat pada nota.
 
-karena terkadang Streamlit yang dipanggil berasal dari environment Python lain.
+Secara keseluruhan, aplikasi berhasil memenuhi tujuan utama project yaitu membaca receipt menggunakan AI dan melakukan split bill secara otomatis.
 
 ---
 
-## 15. Jika Environment VS Code Salah
+# Kelemahan Model AI
 
-Cek dengan:
+Beberapa kelemahan yang ditemukan selama proses pengujian:
 
-```bash
-where python
-```
-
-Jika hasilnya bukan:
-
-```bash
-D:\Anaconda\envs\smartbill\python.exe
-```
-
-maka pilih ulang interpreter di VS Code:
-
-```bash
-Ctrl + Shift + P
-Python: Select Interpreter
-```
-
-Lalu pilih environment:
-
-```bash
-smartbill Python 3.10
-```
+* Model sangat bergantung pada kualitas gambar yang diunggah.
+* Nota yang blur atau memiliki pencahayaan buruk dapat menurunkan akurasi ekstraksi.
+* Membutuhkan koneksi internet karena menggunakan Gemini API.
+* Waktu inferensi bergantung pada kecepatan jaringan dan server API.
+* Beberapa nama item yang tidak umum terkadang dapat dibaca kurang tepat.
 
 ---
 
-## 16. Menjalankan Project di Lain Waktu
+# Ide Pengembangan Model AI
 
-Jika project sudah pernah berhasil dijalankan, langkah berikutnya cukup:
+Beberapa pengembangan yang dapat dilakukan pada model AI:
 
-```bash
-conda activate smartbill
-```
+* Menambahkan OCR lokal sebagai fallback apabila koneksi internet tidak tersedia.
+* Menggunakan beberapa model sekaligus untuk meningkatkan akurasi ekstraksi.
+* Melakukan fine-tuning model menggunakan dataset receipt Indonesia.
+* Menambahkan confidence score pada hasil pembacaan item.
+* Menambahkan validasi otomatis terhadap hasil ekstraksi sebelum ditampilkan kepada pengguna.
 
-Masuk ke folder project:
+---
 
-```bash
-cd /d "LOKASI_FOLDER_PROJECT"
-```
+# Kelemahan Produk
 
-Lalu jalankan:
+Beberapa keterbatasan aplikasi saat ini:
 
-```bash
-python -m streamlit run app.py
-```
+* Belum memiliki sistem login pengguna.
+* Riwayat transaksi belum tersimpan ke database.
+* Belum tersedia fitur ekspor hasil split bill ke PDF atau Excel.
+* Belum tersedia fitur berbagi hasil pembayaran melalui WhatsApp atau Email.
+* Antarmuka masih sederhana karena fokus pada pembuatan prototype.
+
+---
+
+# Ide Pengembangan Produk
+
+Beberapa pengembangan yang dapat dilakukan pada versi berikutnya:
+
+* Menambahkan database untuk menyimpan histori transaksi pengguna.
+* Menambahkan fitur ekspor hasil split bill ke PDF dan Excel.
+* Menambahkan fitur scan nota langsung dari kamera smartphone.
+* Integrasi dengan payment gateway atau QRIS.
+* Menambahkan dashboard statistik pengeluaran pengguna.
+* Menambahkan fitur rekomendasi pembagian biaya berdasarkan histori transaksi sebelumnya.
+
+---
+
+# Kesimpulan
+
+Smart Split Bill AI berhasil menunjukkan bahwa teknologi multimodal AI dapat digunakan untuk membaca receipt dan membantu proses pembagian tagihan secara otomatis.
+
+Melalui kombinasi Gemini 2.5 Flash dan Streamlit, aplikasi mampu memberikan pengalaman yang sederhana namun cukup efektif untuk membantu pengguna mengelola transaksi bersama. Walaupun masih memiliki beberapa keterbatasan, prototype ini memiliki potensi untuk dikembangkan menjadi aplikasi yang lebih lengkap pada masa mendatang.
